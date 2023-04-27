@@ -38,7 +38,11 @@ export class ProductComponenetComponent {
     }
   ];
   ClientName: string = 'Mostafa Salama';
-  IsPurchased: boolean = false;
+  IsPurchased: boolean = true;
 
+  clientName : string = 'Client Name';
+  purchasing(){
+    this.IsPurchased = !this.IsPurchased
+  }
   constructor() {}
 }

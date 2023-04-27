@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { FooterComponenetComponent } from './footer/footer-componenet/footer-componenet.component';
 import { ProductComponenetComponent } from './product/product-componenet/product-componenet.component';
 import { RealHeaderComponenetComponent } from './headerComponenet/real-header-componenet/real-header-componenet.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,8 @@ import { RealHeaderComponenetComponent } from './headerComponenet/real-header-co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
