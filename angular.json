@@ -20,7 +20,6 @@
             "outputPath": "dist/day-1-assigenment",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "angularCompilerOptions": { "singleQuote": true },
             "polyfills": [
               "zone.js"
             ],

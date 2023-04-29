@@ -1,32 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { IProduct, ICategory, DiscountOffers } from '../../SharedClassesAndTypes/SharedClassesAndTypes.component'
+import { Component, Input, OnInit } from '@angular/core';
+import { IProduct, DiscountOffers, ICategory } from '../../SharedClassesAndTypes/SharedClassesAndTypes.component'
+import { ProductService } from 'src/app/service/product.service';
+
 @Component({
   selector: 'app-product-componenet',
   templateUrl: './product-componenet.component.html',
   styleUrls: ['./product-componenet.component.scss']
 })
 
-export class ProductComponenetComponent {
+export class ProductComponenetComponent implements OnInit {
+  @Input() parentData : any ;
+  products: IProduct[] = [];
   Discount: DiscountOffers = DiscountOffers.A;
   StoreName: string = 'My Store';
   StoreLogo: string = 'assets/image/2.jpg';
   src : string = 'assets/image/2.jpg';
-  ProductList: IProduct[] = [
-    {
-      ID: 1,
-      Name: 'Product 1',
-      Quantity: 10,
-      price: 100,
-      img: 'assets/image/2.jpg'
-    },
-    {
-      ID: 2,
-      Name: 'Product 2',
-      Quantity: 5,
-      price: 200,
-      img: 'assets/image/1.webp'
-    }
-  ];
+  prdId = 1;
   CategoryList: ICategory[] = [
     {
       ID: 1,
@@ -44,5 +33,16 @@ export class ProductComponenetComponent {
   purchasing(){
     this.IsPurchased = !this.IsPurchased
   }
-  constructor() {}
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
+  getProductById(prdId: number): IProduct {
+    return this.productService.getProductById(prdId);
+  }
+  renderValues() {
+    this.products = this.productService.getProducts();
+  }
 }
