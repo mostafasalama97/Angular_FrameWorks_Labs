@@ -40,7 +40,7 @@
       </div>
     </div>
   </div> -->
-<br>
+<!-- <br>
 <br>
 <br>
 <br>
@@ -48,7 +48,6 @@
 
   <img [src]="StoreLogo" />
 
-  <!-- <h3 *ngIf="Discount !== 'No discount'">We offer an explicit discount of: {{Discount | percent}}</h3> -->
 
   <div *ngIf="Discount; then thenDiscountBlock"></div>
 
@@ -150,7 +149,6 @@
   <br>
   <br>
 
-  <!-- <h1 style="color: blue;">{{parentData}}</h1> -->
   <br>
   <br>
   <br>
@@ -177,4 +175,35 @@
   <br>
   <br>
   <br>
-  <br>
+  <br> -->
+<!-- -------------------------------------------/ lab 4--------------------- -->
+<div *ngFor="let prod of productList">
+  {{prod.id}} ) {{prod.productName}}
+</div>
+<!-- <div class="row">
+  <div class="col-12">
+    <button class="btn btn-primary mr-3" (click)="showDiscountedProducts()">
+      Products with discount
+    </button>
+    <button class="btn btn-primary" (click)="showNonDiscountedProducts()">
+      Products without discount
+    </button>
+  </div>
+</div> -->
+
+<!-- <div class="row mt-3">
+  <div *ngFor="let prod of productList" class="col-md-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ prod.productName }}</h5>
+        <p class="card-text">
+          Price: {{ prod.price | currency }}
+          <br />
+          Discount: {{ prod.discount }}
+          <br />
+          Net Price: {{ prod.price * (1 - prod.discount / 100) | currency }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -12,8 +12,8 @@ export class AppComponent {
   @ViewChild(ProductComponenetComponent) productComponent!: ProductComponenetComponent;
   showProductsTable: boolean = false;
 
-  showProducts() {
-    this.showProductsTable = true;
-    this.productComponent.renderValues();
-  }
+  // showProducts() {
+  //   this.showProductsTable = true;
+  //   this.productComponent.renderValues();
+  // }
 }
