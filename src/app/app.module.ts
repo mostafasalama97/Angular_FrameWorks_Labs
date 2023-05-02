@@ -13,6 +13,8 @@ import { PostsComponent } from './Posts/posts/posts.component';
 import { ErrorComponent } from './PageNotFound/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentComponent } from './comment/comment/comment.component';
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './register/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,8 @@ import { CommentComponent } from './comment/comment/comment.component';
     PostsComponent,
     ErrorComponent,
     CommentComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [

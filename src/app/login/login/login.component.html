@@ -1,0 +1,59 @@
+<p>login works!</p>
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+          {{userForm.value | json}}
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+
+
+            <input type="email" [class.is-invalid]="email.invalid && email.touched" #email id="form3Example3"
+              name="email" email email="ngModel" [(ngModel)]="userLogin.email" required ngModel
+              class="form-control form-control-lg" placeholder="Enter a valid email address" />
+            {{email.className}}
+            <label class="form-label" for="form3Example3">Email address</label>
+            <small class="text-danger" *ngIf="email.invalid && email.touched">email is required</small>
+            <small *ngIf="email.errors.email">Invalid email format.</small>
+          </div>
+
+          <!-- Password input -->
+
+          <div class="form-outline mb-3">
+            <input type="password" #password [class.is-invalid]="password.invalid && password.touched" name="password"
+              required [(ngModel)]="userLogin.password" id="form3Example4"
+              class="form-control form-control-lg" placeholder="Enter password" />
+            <label class="form-label" for="form3Example4">Password</label>
+            <small class="text-danger" *ngIf="password.invalid && password.touched">Password is required</small>
+          </div>
+
+
+          <!--  date created  -->
+          <div class="form-outline mb-3">
+            <input type="date" #date name="date" [class.is-invalid]="date.invalid && date.touched" date="ngModel"
+              required [(ngModel)]="userLogin.date" id="form3Example4" class="form-control form-control-lg" />
+            {{date.className}}
+            <label class="form-label" for="form3Example4">Date created</label>
+            <small class="text-danger" *ngIf="date.invalid && date.touched">date is required</small>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" [disabled]="userForm.invalid" (click)="onSubmit()" #submitButton
+              class="btn btn-primary btn-lg" [ngClass]="{'btn-danger': userForm.invalid, 'btn-success': userForm.valid}"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+              Login
+            </button>
+            <small class="text-danger" *ngIf="userForm.invalid && userForm.touched">You cannot submit</small>
+            <small class="text-success" *ngIf="userForm.valid">You can submit</small>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

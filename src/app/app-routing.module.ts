@@ -6,12 +6,16 @@ import { PostsComponent } from './Posts/posts/posts.component';
 import { ProductComponenetComponent } from './product/product-componenet/product-componenet.component';
 import { ErrorComponent } from './PageNotFound/error/error.component';
 import { CommentComponent } from './comment/comment/comment.component';
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './register/register/register.component';
 const routes: Routes = [
   { path: '', component:HomeComponent },
   { path: 'Home', component:HomeComponent },
   { path: 'User', component: UserComponent },
   { path: 'Product', component: ProductComponenetComponent },
   { path: 'Posts', component: PostsComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Register', component: RegisterComponent },
   {
     path:'posts/:id',
     component:HomeComponent,

@@ -1,0 +1,57 @@
+<div class="container">
+  <form  #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+      {{userForm.value |json}}
+      <br>
+      {{userRegisteration|json}}
+      <div class="form-group">
+          <label>User Name</label>
+          <input type="text" [class.is-invalid]="name.invalid && name.touched" required  name="txtName" #name="ngModel" [(ngModel)]="userRegisteration.userName" class="form-control">
+          <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
+      </div>
+
+      <div class="form-group">
+          <label>Email</label>
+          <input type="email" email name="txtEmail" [(ngModel)]="userRegisteration.email" #email="ngModel" class="form-control">
+          <small class="text-danger" *ngIf="email.invalid && email.touched">email is required</small>
+          <small *ngIf="email.errors?.['email']">Invalid email format.</small>
+
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control"
+               [(ngModel)]="userRegisteration.password" required pattern="^(?=.*[a-zA-Z])(?=.*\d).+$"
+               #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <small class="text-danger" *ngIf="password.errors?.['required']">Password is required</small>
+          <small class="text-danger" *ngIf="password.errors?.['pattern']">Password must contain at least one letter and one number</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+               [(ngModel)]="userRegisteration.confirmPassword" required
+               compare="password" #confirmPassword="ngModel">
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+          <small class="text-danger" *ngIf="confirmPassword.errors?.['required']">Confirm Password is required</small>
+          <small class="text-danger" *ngIf="confirmPassword.errors?.['compare']">Passwords do not match</small>
+        </div>
+      </div>
+      <div class="form-group">
+          <select class="custom-select" name="aboutUs" [(ngModel)]="userRegisteration.aboutUs" #about="ngModel" >
+              <option>
+                  I'm interested in
+              </option>
+              <option *ngFor="let topic of aboutUs">
+                  {{topic}}
+              </option>
+          </select>
+      </div>
+
+      <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="Register">
+      <small class="text-danger" *ngIf="userForm.invalid && userForm.touched">You cannot submit</small>
+      <small class="text-success" *ngIf="userForm.valid">You can submit</small>
+
+  </form>
+</div>
