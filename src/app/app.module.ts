@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponenetComponent } from './footer/footer-componenet/footer-componenet.component';
 import { ProductComponenetComponent } from './product/product-componenet/product-componenet.component';
 import { RealHeaderComponenetComponent } from './headerComponenet/real-header-componenet/real-header-componenet.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './Home/home/home.component';
 import { UserComponent } from './User/user/user.component';
 import { PostsComponent } from './Posts/posts/posts.component';
@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentComponent } from './comment/comment/comment.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register/register.component';
+import { ReactivRegusterationComponent } from './reactiveFormRegisteration/reactiv-regusteration/reactiv-regusteration.component';
+import { ReactiveLoginComponent } from './ReactiveFormLogin/reactive-login/reactive-login.component';
+import { NotesComponent } from './notesPage/notes/notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +31,9 @@ import { RegisterComponent } from './register/register/register.component';
     CommentComponent,
     LoginComponent,
     RegisterComponent,
+    ReactivRegusterationComponent,
+    ReactiveLoginComponent,
+    NotesComponent,
 
   ],
   imports: [
@@ -35,6 +41,7 @@ import { RegisterComponent } from './register/register/register.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
